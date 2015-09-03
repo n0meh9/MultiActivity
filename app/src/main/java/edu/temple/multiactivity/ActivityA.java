@@ -32,7 +32,6 @@ public class ActivityA extends Activity {
         */
         openActivityButton = (Button) findViewById(R.id.btnOneForA);
 
-
         messageTextView = (TextView) findViewById(R.id.txtForA);
 
         String intentDataString = "No parent";
