@@ -13,7 +13,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Go To A"
         android:id="@+id/btnOneForC"
         android:layout_below="@+id/txtForC"
         android:layout_alignParentStart="true"
@@ -23,7 +23,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Go To B"
         android:id="@+id/btnTwoForC"
         android:layout_below="@+id/btnOneForC"
         android:layout_toEndOf="@+id/btnOneForC"

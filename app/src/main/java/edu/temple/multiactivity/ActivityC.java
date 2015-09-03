@@ -7,11 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ActivityC extends Activity {
 
     Button openActivityButton;
     Button openActivityButton2;
+    TextView messageTextView;
+    ArrayList<String> path = new ArrayList<String>();
 
 
     @Override
@@ -27,6 +33,28 @@ public class ActivityC extends Activity {
         */
         openActivityButton = (Button) findViewById(R.id.btnOneForC);
 
+        messageTextView = (TextView) findViewById(R.id.txtForC);
+
+        //  Retrieve the intent used to launch this instance of the activity
+        Intent receivedIntent = getIntent();
+
+        //  Grad the data that was passed.
+        final ArrayList<String> path = receivedIntent.getStringArrayListExtra("Key");
+
+        //  Display the received message in the text view
+        String intentDataString = "";
+        Iterator<String> it = path.iterator();
+        if (path.size() == 1) {
+            intentDataString = it.next();
+        } else {
+            intentDataString = it.next();
+            while (it.hasNext()) {
+                intentDataString = it.next() + ", which was " + intentDataString;
+            }
+        }
+
+        messageTextView.setText(intentDataString);
+
 
         // Create listener for click event
         View.OnClickListener oc1 = new View.OnClickListener() {
@@ -41,10 +69,11 @@ public class ActivityC extends Activity {
                 Intent launchActivityIntent = new Intent(ActivityC.this, ActivityA.class);
 
                 //  Some data we want to pass to the child activity
-                String dataString = "String data from Activity B";
+                String dataString = "opened by C";
+                path.add(dataString);
 
                 //  Place the data in the intent
-                launchActivityIntent.putExtra("name", dataString);
+                launchActivityIntent.putStringArrayListExtra("Key", path);
 
                 //  Launch the activity using the created intent. Fire and Forget method.
                 startActivity(launchActivityIntent);
@@ -73,10 +102,11 @@ public class ActivityC extends Activity {
                 Intent launchActivityIntent = new Intent(ActivityC.this, ActivityB.class);
 
                 //  Some data we want to pass to the child activity
-                String dataString = "String data from Activity B";
+                String dataString = "opened by C";
+                path.add(dataString);
 
                 //  Place the data in the intent
-                launchActivityIntent.putExtra("KeyHelper.DATA_FROM_A_TO_B_KEY", dataString);
+                launchActivityIntent.putStringArrayListExtra("Key", path);
 
                 //  Launch the activity using the created intent. Fire and Forget method.
                 startActivity(launchActivityIntent);

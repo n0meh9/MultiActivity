@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Go to B"
         android:id="@+id/btnOneForA"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
@@ -21,7 +21,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Go to C"
         android:id="@+id/btnTwoForA"
         android:layout_below="@+id/btnOneForA"
         android:layout_centerHorizontal="true"
